@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>单片机大作业 | 潜心的博客</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/favicon_io.ico">
+    <meta name="description" content="单片机大作业">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="author" content="潜心">
+    <meta name="keywords" content="CTF, web, misc, crypto, python, php, writeup">
+    
+    <link rel="preload" href="/assets/css/0.styles.c4acef5e.css" as="style"><link rel="preload" href="/assets/js/app.f7e8e995.js" as="script"><link rel="preload" href="/assets/js/4.3cee6728.js" as="script"><link rel="preload" href="/assets/js/1.c5ff96e6.js" as="script"><link rel="preload" href="/assets/js/34.d6227dc2.js" as="script"><link rel="prefetch" href="/assets/js/10.8e600f2b.js"><link rel="prefetch" href="/assets/js/11.fc36ce6b.js"><link rel="prefetch" href="/assets/js/12.6cdbdcaf.js"><link rel="prefetch" href="/assets/js/13.61b4f805.js"><link rel="prefetch" href="/assets/js/14.c591399f.js"><link rel="prefetch" href="/assets/js/15.361ca9ac.js"><link rel="prefetch" href="/assets/js/16.08785b04.js"><link rel="prefetch" href="/assets/js/17.822b9315.js"><link rel="prefetch" href="/assets/js/18.003c5ebc.js"><link rel="prefetch" href="/assets/js/19.bd0112f8.js"><link rel="prefetch" href="/assets/js/2.5b7a4028.js"><link rel="prefetch" href="/assets/js/20.64fc3ad9.js"><link rel="prefetch" href="/assets/js/21.588b5815.js"><link rel="prefetch" href="/assets/js/22.fc668e2b.js"><link rel="prefetch" href="/assets/js/23.284ec3f8.js"><link rel="prefetch" href="/assets/js/24.b263c519.js"><link rel="prefetch" href="/assets/js/25.669d01ee.js"><link rel="prefetch" href="/assets/js/26.d139a31e.js"><link rel="prefetch" href="/assets/js/27.624e6fc7.js"><link rel="prefetch" href="/assets/js/28.2a673897.js"><link rel="prefetch" href="/assets/js/29.9bf86b1f.js"><link rel="prefetch" href="/assets/js/30.80d6f8d0.js"><link rel="prefetch" href="/assets/js/31.e1dd9a8e.js"><link rel="prefetch" href="/assets/js/32.6ab2a980.js"><link rel="prefetch" href="/assets/js/33.71f50014.js"><link rel="prefetch" href="/assets/js/35.9ca30d12.js"><link rel="prefetch" href="/assets/js/36.fcde9c40.js"><link rel="prefetch" href="/assets/js/37.1aea60dc.js"><link rel="prefetch" href="/assets/js/38.8de670a2.js"><link rel="prefetch" href="/assets/js/39.02d8e408.js"><link rel="prefetch" href="/assets/js/40.3445ceda.js"><link rel="prefetch" href="/assets/js/41.ecc5023b.js"><link rel="prefetch" href="/assets/js/42.4356d800.js"><link rel="prefetch" href="/assets/js/43.8a1ed75e.js"><link rel="prefetch" href="/assets/js/44.92e4084c.js"><link rel="prefetch" href="/assets/js/45.08d80acc.js"><link rel="prefetch" href="/assets/js/46.4fe9ee4b.js"><link rel="prefetch" href="/assets/js/47.6e1edf1e.js"><link rel="prefetch" href="/assets/js/48.229a61cd.js"><link rel="prefetch" href="/assets/js/49.7e1c0063.js"><link rel="prefetch" href="/assets/js/5.e7038132.js"><link rel="prefetch" href="/assets/js/6.f36bd144.js"><link rel="prefetch" href="/assets/js/7.898c1b14.js"><link rel="prefetch" href="/assets/js/8.c7c9767e.js"><link rel="prefetch" href="/assets/js/9.39de197d.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c4acef5e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-edf8551e><div data-v-edf8551e><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-edf8551e data-v-edf8551e><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-24de1186 data-v-edf8551e data-v-edf8551e><h3 class="title" data-v-24de1186 data-v-24de1186>潜心的博客</h3> <p class="description" data-v-24de1186 data-v-24de1186>记录一名CTFer的学习日常</p> <label id="box" class="inputBox" data-v-24de1186 data-v-24de1186><input type="password" value="" data-v-24de1186> <span data-v-24de1186>Konck! Knock!</span> <button data-v-24de1186>OK</button></label> <div class="footer" data-v-24de1186 data-v-24de1186><span data-v-24de1186><i class="iconfont reco-theme" data-v-24de1186></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-24de1186>vuePress-theme-reco</a></span> <span data-v-24de1186><i class="iconfont reco-copyright" data-v-24de1186></i> <a data-v-24de1186><span data-v-24de1186>潜心</span>
+            
+          <!---->
+          2022
+        </a></span></div></div> <div class="hide" data-v-edf8551e><header class="navbar" data-v-edf8551e><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="潜心的博客" class="logo"> <span class="site-name">潜心的博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/博客搭建/" class="nav-link"><i class="undefined"></i>
+  博客搭建
+</a></li><li class="dropdown-item"><!----> <a href="/categories/crypto/" class="nav-link"><i class="undefined"></i>
+  crypto
+</a></li><li class="dropdown-item"><!----> <a href="/categories/misc/" class="nav-link"><i class="undefined"></i>
+  misc
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mobile/" class="nav-link"><i class="undefined"></i>
+  mobile
+</a></li><li class="dropdown-item"><!----> <a href="/categories/notes/" class="nav-link"><i class="undefined"></i>
+  notes
+</a></li><li class="dropdown-item"><!----> <a href="/categories/web/" class="nav-link"><i class="undefined"></i>
+  web
+</a></li><li class="dropdown-item"><!----> <a href="/categories/writeup/" class="nav-link"><i class="undefined"></i>
+  writeup
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-blog"></i>
+      CTF
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/writeup/" class="nav-link"><i class="undefined"></i>
+  Writeup
+</a></li><li class="dropdown-item"><!----> <a href="/web/" class="nav-link"><i class="undefined"></i>
+  Web
+</a></li><li class="dropdown-item"><!----> <a href="/misc/" class="nav-link"><i class="undefined"></i>
+  Misc
+</a></li><li class="dropdown-item"><!----> <a href="/crypto/" class="nav-link"><i class="undefined"></i>
+  Crypto
+</a></li><li class="dropdown-item"><!----> <a href="/mobile/" class="nav-link"><i class="undefined"></i>
+  Mobile
+</a></li></ul></div></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/docs/tools.html" class="nav-link"><i class="iconfont reco-document"></i>
+  工具网站
+</a></div><div class="nav-item"><a href="/docs/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-edf8551e></div> <aside class="sidebar" data-v-edf8551e><div class="personal-info-wrapper" data-v-29bd5bbe data-v-edf8551e><img src="/avatar.jpg" alt="author-avatar" class="personal-img" data-v-29bd5bbe> <h3 class="name" data-v-29bd5bbe>
+    潜心
+  </h3> <div class="num" data-v-29bd5bbe><div data-v-29bd5bbe><h3 data-v-29bd5bbe>29</h3> <h6 data-v-29bd5bbe>文章</h6></div> <div data-v-29bd5bbe><h3 data-v-29bd5bbe>51</h3> <h6 data-v-29bd5bbe>标签</h6></div></div> <ul class="social-links" data-v-29bd5bbe></ul> <hr data-v-29bd5bbe></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/博客搭建/" class="nav-link"><i class="undefined"></i>
+  博客搭建
+</a></li><li class="dropdown-item"><!----> <a href="/categories/crypto/" class="nav-link"><i class="undefined"></i>
+  crypto
+</a></li><li class="dropdown-item"><!----> <a href="/categories/misc/" class="nav-link"><i class="undefined"></i>
+  misc
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mobile/" class="nav-link"><i class="undefined"></i>
+  mobile
+</a></li><li class="dropdown-item"><!----> <a href="/categories/notes/" class="nav-link"><i class="undefined"></i>
+  notes
+</a></li><li class="dropdown-item"><!----> <a href="/categories/web/" class="nav-link"><i class="undefined"></i>
+  web
+</a></li><li class="dropdown-item"><!----> <a href="/categories/writeup/" class="nav-link"><i class="undefined"></i>
+  writeup
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-blog"></i>
+      CTF
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/writeup/" class="nav-link"><i class="undefined"></i>
+  Writeup
+</a></li><li class="dropdown-item"><!----> <a href="/web/" class="nav-link"><i class="undefined"></i>
+  Web
+</a></li><li class="dropdown-item"><!----> <a href="/misc/" class="nav-link"><i class="undefined"></i>
+  Misc
+</a></li><li class="dropdown-item"><!----> <a href="/crypto/" class="nav-link"><i class="undefined"></i>
+  Crypto
+</a></li><li class="dropdown-item"><!----> <a href="/mobile/" class="nav-link"><i class="undefined"></i>
+  Mobile
+</a></li></ul></div></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/docs/tools.html" class="nav-link"><i class="iconfont reco-document"></i>
+  工具网站
+</a></div><div class="nav-item"><a href="/docs/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于
+</a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Notes</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/notes/" aria-current="page" class="sidebar-link">README</a></li><li><a href="/notes/20220701/" class="sidebar-link">PHP大小写敏感原则</a></li><li><a href="/notes/20220612/" aria-current="page" class="active sidebar-link">单片机大作业</a></li><li><a href="/notes/20220506/" class="sidebar-link">在Windows下安装和使用vim</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-24de1186 data-v-edf8551e><h3 class="title" data-v-24de1186 data-v-24de1186>单片机大作业</h3> <!----> <label id="box" class="inputBox" data-v-24de1186 data-v-24de1186><input type="password" value="" data-v-24de1186> <span data-v-24de1186>Konck! Knock!</span> <button data-v-24de1186>OK</button></label> <div class="footer" data-v-24de1186 data-v-24de1186><span data-v-24de1186><i class="iconfont reco-theme" data-v-24de1186></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-24de1186>vuePress-theme-reco</a></span> <span data-v-24de1186><i class="iconfont reco-copyright" data-v-24de1186></i> <a data-v-24de1186><span data-v-24de1186>潜心</span>
+            
+          <!---->
+          2022
+        </a></span></div></div> <div data-v-edf8551e><main class="page"><section><div class="page-title"><h1 class="title">单片机大作业</h1> <div data-v-6b827e97><i class="iconfont reco-account" data-v-6b827e97><span data-v-6b827e97>潜心</span></i> <i class="iconfont reco-date" data-v-6b827e97><span data-v-6b827e97>2022-6-12</span></i> <!----> <i class="tags iconfont reco-tag" data-v-6b827e97><span class="tag-item" data-v-6b827e97>单片机</span><span class="tag-item" data-v-6b827e97>LCD</span><span class="tag-item" data-v-6b827e97>DS18B20</span><span class="tag-item" data-v-6b827e97>串口通信</span><span class="tag-item" data-v-6b827e97>proteus</span></i></div></div> <div class="theme-reco-content content__default"><p>这学期学了单片机这门课，收获颇丰。相对于所学的其它课程来说，这门课“硬件”了很多，但学起来也相当有趣，在这里记录下大作业的一道题。题目如下：</p> <p>使用proteus仿真，单片机甲采集ds18b20温度传感器的温度值，利用LCD显示该值。通过串口将温度值传给单片机乙，利用LCD显示该值。LCD都采用两行显示，第一行显示内容为&quot;temperature:&quot;，第二行显示温度值，温度值显示的具体位数自行定义。</p> <br> <h2 id="分析"><a href="#分析" class="header-anchor">#</a> 分析</h2> <p>这个大作业有3个功能需要实现：</p> <ul><li>采集ds18b20温度传感器的温度值</li> <li>利用LCD显示温度值</li> <li>通过串口通信，将温度值发送给另一个单片机</li></ul> <p>在这里甲机需要完成3件事</p> <ol><li>采集DS18B20温度传感器的温度值</li> <li>利用LCD显示温度值</li> <li>通过串口将温度值传给乙机</li></ol> <p>而乙机则需要完成2件事</p> <ol><li>通过串口接收甲机传来的温度值</li> <li>利用LCD显示温度值</li></ol> <br> <h2 id="仿真图"><a href="#仿真图" class="header-anchor">#</a> 仿真图</h2> <p><img src="https://mrzry.oss-cn-guangzhou.aliyuncs.com/%E5%8D%95%E7%89%87%E6%9C%BA%E5%A4%A7%E4%BD%9C%E4%B8%9A/image-20220526235420449.png" alt=""></p> <h3 id="甲机"><a href="#甲机" class="header-anchor">#</a> 甲机</h3> <p><img src="https://mrzry.oss-cn-guangzhou.aliyuncs.com/%E5%8D%95%E7%89%87%E6%9C%BA%E5%A4%A7%E4%BD%9C%E4%B8%9A/image-20220526235305732.png" alt=""></p> <h3 id="乙机"><a href="#乙机" class="header-anchor">#</a> 乙机</h3> <p><img src="https://mrzry.oss-cn-guangzhou.aliyuncs.com/%E5%8D%95%E7%89%87%E6%9C%BA%E5%A4%A7%E4%BD%9C%E4%B8%9A/image-20220526235333341.png" alt=""></p> <br> <h2 id="编程"><a href="#编程" class="header-anchor">#</a> 编程</h2> <h3 id="ds18b20相关函数"><a href="#ds18b20相关函数" class="header-anchor">#</a> DS18B20相关函数</h3> <p>在<code>DS18B20_GetTemp()</code>函数中，返回值是float类型，同时可以返回负数。</p> <div class="language-c line-numbers-mode"><pre class="language-c"><code><span class="token comment">// 初始化</span>
+<span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token function">DS18B20_INIT</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> presencePulse<span class="token punctuation">;</span>
+	DQ <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token function">delay_us</span><span class="token punctuation">(</span><span class="token number">240</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	DQ <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token function">delay_us</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	presencePulse <span class="token operator">=</span> DQ<span class="token punctuation">;</span>
+	<span class="token function">delay_us</span><span class="token punctuation">(</span><span class="token number">250</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> presencePulse<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 写指令</span>
+<span class="token keyword">void</span> <span class="token function">DS18B20_WriteCmd</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> Rbyte<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">,</span> k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span><span class="token number">8</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		k <span class="token operator">=</span> Rbyte <span class="token operator">&amp;</span> <span class="token number">0x01</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>k <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			DQ <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+			<span class="token function">delay_us</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			DQ <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+			<span class="token function">delay_us</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			DQ <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+			DQ <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+			<span class="token function">delay_us</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			DQ <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		Rbyte <span class="token operator">=</span> Rbyte <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 读数据</span>
+<span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token function">DS18B20_ReadData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">,</span> Data<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span><span class="token number">8</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		DQ <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+		Data <span class="token operator">=</span> Data <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		DQ <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>DQ<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			Data <span class="token operator">=</span> Data <span class="token operator">|</span> <span class="token number">0x80</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token function">delay_us</span><span class="token punctuation">(</span><span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		DQ <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token function">_nop_</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> Data<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 获取温度</span>
+<span class="token keyword">float</span> <span class="token function">DS18B20_GetTemp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> valueLow <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> valueHigh <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">short</span> <span class="token keyword">int</span> temp <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token function">DS18B20_INIT</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">DS18B20_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0xcc</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">DS18B20_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x44</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">delay_750ms</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">DS18B20_INIT</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">DS18B20_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0xcc</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">DS18B20_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0xbe</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	valueLow <span class="token operator">=</span> <span class="token function">DS18B20_ReadData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	valueHigh <span class="token operator">=</span> <span class="token function">DS18B20_ReadData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	temp <span class="token operator">=</span> valueHigh<span class="token punctuation">;</span>
+	temp <span class="token operator">=</span> temp<span class="token operator">&lt;&lt;</span><span class="token number">8</span><span class="token punctuation">;</span>
+	temp <span class="token operator">=</span> temp<span class="token operator">|</span>valueLow<span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token number">0.0625</span><span class="token operator">*</span>temp<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br></div></div><br> <h3 id="lcd相关函数"><a href="#lcd相关函数" class="header-anchor">#</a> LCD相关函数</h3> <p>在<code>LCD_INIT()</code>函数中，对LCD分别做如下初始化：</p> <ul><li><p>工作方式：8位数据位，2行显示，5*7点阵</p></li> <li><p>输入方式：光标右移，整个屏幕不移动</p></li> <li><p>光标设置：显示光标，但不闪烁</p></li> <li><p>显示设置：在第1行第1个位置开始显示</p></li></ul> <p>在<code>LCD_Float2CharArray()</code>函数中，会对float类型的温度值转换为字符数组进行存储，以<code>\0</code>作为结束符</p> <p>在<code>LCD_Display()</code>函数中，会在LCD的第2行显示温度值，其中<code>0xdf</code>和<code>C</code>是**<code>℃</code>**</p> <div class="language-c line-numbers-mode"><pre class="language-c"><code><span class="token comment">// 初始化</span>
+<span class="token keyword">void</span> <span class="token function">LCD_INIT</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x38</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x01</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x06</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x0e</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x80</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 读状态</span>
+<span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token function">LCD_ReadState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> s<span class="token punctuation">;</span>
+	RW<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> RS<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	E<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> s<span class="token operator">=</span>P0<span class="token punctuation">;</span> E<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> s<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 写指令</span>
+<span class="token keyword">void</span> <span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> cmd<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">;</span>
+	<span class="token keyword">do</span> <span class="token punctuation">{</span>
+		i <span class="token operator">=</span> <span class="token function">LCD_ReadState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		i <span class="token operator">&amp;=</span> <span class="token number">0x80</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span> <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	RW<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> RS<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	E<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> P0<span class="token operator">=</span>cmd<span class="token punctuation">;</span> E<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 写数据</span>
+<span class="token keyword">void</span> <span class="token function">LCD_WriteData</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> info<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">;</span>
+	<span class="token keyword">do</span> <span class="token punctuation">{</span>
+		i <span class="token operator">=</span> <span class="token function">LCD_ReadState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		i <span class="token operator">&amp;=</span> <span class="token number">0x80</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span> <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	RW<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> RS<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+	E<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> P0<span class="token operator">=</span>info<span class="token punctuation">;</span> E<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 温度：float转为字符数组</span>
+<span class="token keyword">void</span> <span class="token function">LCD_Float2CharArray</span><span class="token punctuation">(</span><span class="token keyword">float</span> tempp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>tempp <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		temp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'+'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+		temp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'-'</span><span class="token punctuation">;</span>
+		tempp <span class="token operator">=</span> tempp <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	temp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">' '</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>tempp <span class="token operator">&gt;=</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		temp<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> tempp <span class="token operator">/</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token number">48</span><span class="token punctuation">;</span>
+		temp<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>tempp <span class="token operator">%</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token number">48</span><span class="token punctuation">;</span>
+		temp<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'.'</span><span class="token punctuation">;</span>
+		temp<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>tempp <span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>tempp<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token number">48</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+		temp<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'\0'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+		temp<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>tempp <span class="token operator">%</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token number">48</span><span class="token punctuation">;</span>
+		temp<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'.'</span><span class="token punctuation">;</span>
+		temp<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>tempp <span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>tempp<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token number">48</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+		temp<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'\0'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 显示温度</span>
+<span class="token keyword">void</span> <span class="token function">LCD_Display</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token operator">*</span>tempp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0xC0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">*</span>tempp <span class="token operator">!=</span> <span class="token char">'\0'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">LCD_WriteData</span><span class="token punctuation">(</span><span class="token operator">*</span>tempp<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token function">LCD_WriteData</span><span class="token punctuation">(</span><span class="token number">0xdf</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteData</span><span class="token punctuation">(</span><span class="token char">'C'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>		<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteData</span><span class="token punctuation">(</span><span class="token char">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br></div></div><br> <h3 id="串口通信相关函数"><a href="#串口通信相关函数" class="header-anchor">#</a> 串口通信相关函数</h3> <p>甲机在发送数据时，会首先计算存储温度的字符数组的实际长度，然后将长度发送给乙机，之后在发送字符数组。</p> <p>乙机在接收数据时，会首先接收字符数组的长度，然后通过for循环再接收温度值，最后添加上<code>\0</code>。</p> <div class="language-c line-numbers-mode"><pre class="language-c"><code><span class="token comment">// 发送数据</span>
+<span class="token keyword">void</span> <span class="token function">SERIAL_Send</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token operator">*</span>tempp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">,</span> len<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">*</span>tempp<span class="token operator">++</span> <span class="token operator">!=</span> <span class="token char">'\0'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		len <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token comment">// 发送数据长度</span>
+	SBUF <span class="token operator">=</span> len<span class="token punctuation">;</span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span>TI <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	TI <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token comment">// 发送数据</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		SBUF <span class="token operator">=</span> temp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token keyword">while</span><span class="token punctuation">(</span>TI <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		TI <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 接收数据</span>
+<span class="token keyword">void</span> <span class="token function">SERIAL_Receive</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">,</span> len<span class="token punctuation">;</span>
+    <span class="token comment">// 接收数据长度</span>
+	REN <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span>RI <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	len <span class="token operator">=</span> SBUF<span class="token punctuation">;</span>
+	RI <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		REN <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token keyword">while</span><span class="token punctuation">(</span>RI <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		temp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> SBUF<span class="token punctuation">;</span>
+		RI <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	temp<span class="token punctuation">[</span>len<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'\0'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><br> <h3 id="延迟函数"><a href="#延迟函数" class="header-anchor">#</a> 延迟函数</h3> <div class="language-c line-numbers-mode"><pre class="language-c"><code><span class="token comment">// 2微秒</span>
+<span class="token keyword">void</span> <span class="token function">delay_us</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">--</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 750毫秒</span>
+<span class="token keyword">void</span> <span class="token function">delay_750ms</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">,</span>j<span class="token punctuation">,</span>k<span class="token punctuation">;</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">23</span><span class="token punctuation">;</span> i<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span>j<span class="token operator">=</span><span class="token number">202</span><span class="token punctuation">;</span> j<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">for</span> <span class="token punctuation">(</span>k<span class="token operator">=</span><span class="token number">81</span><span class="token punctuation">;</span> k<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">;</span> k<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 自定义延迟</span>
+<span class="token keyword">void</span> <span class="token function">delay</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> t<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">,</span> j<span class="token punctuation">;</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>t<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span>j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">&lt;</span><span class="token number">50</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><br> <h3 id="甲机主函数"><a href="#甲机主函数" class="header-anchor">#</a> 甲机主函数</h3> <p>甲机首先会在LCD的第1行第1个位置开始，显示<code>temperature:</code>，之后通过<code>DS18B20_GetTemp()</code>获取DS18B20的温度值，然后转为字符数组并从LCD的第2行第1个位置开始显示。</p> <p>然后通过串口通信，将字符数组传给乙机，最后时刻监视温度值是否有变化，如果变化了则重新显示温度值并将新的温度值发送给乙机。</p> <div class="language-c line-numbers-mode"><pre class="language-c"><code><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">;</span>
+	<span class="token keyword">float</span> tempp<span class="token punctuation">;</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> title<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">&quot;temperature:&quot;</span><span class="token punctuation">;</span>
+	P0 <span class="token operator">=</span> <span class="token number">0xff</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_INIT</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x80</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span><span class="token function">strlen</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">LCD_WriteData</span><span class="token punctuation">(</span>title<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	
+	temperature <span class="token operator">=</span> <span class="token function">DS18B20_GetTemp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_Float2CharArray</span><span class="token punctuation">(</span>temperature<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_Display</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	TMOD <span class="token operator">=</span> <span class="token number">0x20</span><span class="token punctuation">;</span>
+	TL1 <span class="token operator">=</span> <span class="token number">0xf4</span><span class="token punctuation">;</span>
+	TH1 <span class="token operator">=</span> <span class="token number">0xf4</span><span class="token punctuation">;</span>
+	TR1 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	SCON <span class="token operator">=</span> <span class="token number">0x40</span><span class="token punctuation">;</span>
+	<span class="token function">SERIAL_Send</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		tempp <span class="token operator">=</span> <span class="token function">DS18B20_GetTemp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment">// 温度有改变</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">abs</span><span class="token punctuation">(</span>tempp<span class="token operator">*</span><span class="token number">100</span> <span class="token operator">-</span> temperature<span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0.001</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			temperature <span class="token operator">=</span> tempp<span class="token punctuation">;</span>
+			<span class="token function">LCD_Float2CharArray</span><span class="token punctuation">(</span>temperature<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">LCD_Display</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">SERIAL_Send</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br></div></div><br> <h3 id="乙机主函数"><a href="#乙机主函数" class="header-anchor">#</a> 乙机主函数</h3> <p>乙机首先会在LCD的第1行第1个位置开始，显示<code>temperature:</code>，之后通过串口通信接收来自甲机传来的温度值并从LCD的第2行第1个位置开始显示，最后通过while(1)死循环，一直等待并接收来自甲机的数据并重新显示到LCD上。</p> <div class="language-c line-numbers-mode"><pre class="language-c"><code><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">;</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> title<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">&quot;temperature:&quot;</span><span class="token punctuation">;</span>
+	P0 <span class="token operator">=</span> <span class="token number">0xff</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_INIT</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x80</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span><span class="token function">strlen</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">LCD_WriteData</span><span class="token punctuation">(</span>title<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	TMOD <span class="token operator">=</span> <span class="token number">0x20</span><span class="token punctuation">;</span>
+	TL1 <span class="token operator">=</span> <span class="token number">0xf4</span><span class="token punctuation">;</span>
+	TH1 <span class="token operator">=</span> <span class="token number">0xf4</span><span class="token punctuation">;</span>
+	TR1 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	SCON <span class="token operator">=</span> <span class="token number">0x40</span><span class="token punctuation">;</span>
+	<span class="token function">SERIAL_Receive</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_Display</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">SERIAL_Receive</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">LCD_Display</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><br> <h2 id="源码"><a href="#源码" class="header-anchor">#</a> 源码</h2> <h3 id="甲机-2"><a href="#甲机-2" class="header-anchor">#</a> 甲机</h3> <div class="language-c line-numbers-mode"><pre class="language-c"><code><span class="token comment">/*
+甲机需要完成3件事
+1. 采集DS18B20温度传感器的温度值
+2. 利用LCD显示温度值
+3. 通过串口将温度值传给乙机
+*/</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;reg52.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;intrins.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;math.h&gt;</span></span>
+
+sbit RS <span class="token operator">=</span> P1<span class="token operator">^</span><span class="token number">0</span><span class="token punctuation">;</span>
+sbit RW <span class="token operator">=</span> P1<span class="token operator">^</span><span class="token number">1</span><span class="token punctuation">;</span>
+sbit E  <span class="token operator">=</span> P2<span class="token operator">^</span><span class="token number">5</span><span class="token punctuation">;</span>
+sbit DQ <span class="token operator">=</span> P2<span class="token operator">^</span><span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">float</span> temperature <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>                      <span class="token comment">// 温度</span>
+<span class="token keyword">unsigned</span> <span class="token keyword">char</span> temp<span class="token punctuation">[</span><span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">;</span>                     <span class="token comment">// 温度</span>
+
+<span class="token comment">// DS18B20相关函数</span>
+<span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token function">DS18B20_INIT</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>               <span class="token comment">// 初始化</span>
+<span class="token keyword">void</span> <span class="token function">DS18B20_WriteCmd</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> Rbyte<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 写指令</span>
+<span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token function">DS18B20_ReadData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment">// 读数据</span>
+<span class="token keyword">float</span> <span class="token function">DS18B20_GetTemp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                    <span class="token comment">// 获取温度</span>
+
+<span class="token comment">// LCD相关函数</span>
+<span class="token keyword">void</span> <span class="token function">LCD_INIT</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                            <span class="token comment">// 初始化</span>
+<span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token function">LCD_ReadState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>              <span class="token comment">// 读状态</span>
+<span class="token keyword">void</span> <span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> cmd<span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment">// 写指令</span>
+<span class="token keyword">void</span> <span class="token function">LCD_WriteData</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> info<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// 写数据</span>
+<span class="token keyword">void</span> <span class="token function">LCD_Float2CharArray</span><span class="token punctuation">(</span><span class="token keyword">float</span> tempp<span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">// 温度：float转为字符数组</span>
+<span class="token keyword">void</span> <span class="token function">LCD_Display</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token operator">*</span>tempp<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// 显示温度</span>
+
+<span class="token comment">// 串口通信相关函数</span>
+<span class="token keyword">void</span> <span class="token function">SERIAL_Send</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token operator">*</span>tempp<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// 发送数据</span>
+
+<span class="token comment">// 延迟函数</span>
+<span class="token keyword">void</span> <span class="token function">delay_us</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">// 2微秒</span>
+<span class="token keyword">void</span> <span class="token function">delay_750ms</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                         <span class="token comment">// 750毫秒</span>
+<span class="token keyword">void</span> <span class="token function">delay</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> t<span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token comment">// 自定义延迟</span>
+
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">;</span>
+	<span class="token keyword">float</span> tempp<span class="token punctuation">;</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> title<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">&quot;temperature:&quot;</span><span class="token punctuation">;</span>
+	P0 <span class="token operator">=</span> <span class="token number">0xff</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_INIT</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x80</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span><span class="token function">strlen</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">LCD_WriteData</span><span class="token punctuation">(</span>title<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	
+	temperature <span class="token operator">=</span> <span class="token function">DS18B20_GetTemp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_Float2CharArray</span><span class="token punctuation">(</span>temperature<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_Display</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	TMOD <span class="token operator">=</span> <span class="token number">0x20</span><span class="token punctuation">;</span>
+	TL1 <span class="token operator">=</span> <span class="token number">0xf4</span><span class="token punctuation">;</span>
+	TH1 <span class="token operator">=</span> <span class="token number">0xf4</span><span class="token punctuation">;</span>
+	TR1 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	SCON <span class="token operator">=</span> <span class="token number">0x40</span><span class="token punctuation">;</span>
+	<span class="token function">SERIAL_Send</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		tempp <span class="token operator">=</span> <span class="token function">DS18B20_GetTemp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment">// 温度有改变</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">abs</span><span class="token punctuation">(</span>tempp<span class="token operator">*</span><span class="token number">100</span> <span class="token operator">-</span> temperature<span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0.001</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			temperature <span class="token operator">=</span> tempp<span class="token punctuation">;</span>
+			<span class="token function">LCD_Float2CharArray</span><span class="token punctuation">(</span>temperature<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">LCD_Display</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">SERIAL_Send</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// ----------------DS18B20相关函数--------------------</span>
+<span class="token comment">// 初始化</span>
+<span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token function">DS18B20_INIT</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> presencePulse<span class="token punctuation">;</span>
+	DQ <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token function">delay_us</span><span class="token punctuation">(</span><span class="token number">240</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	DQ <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token function">delay_us</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	presencePulse <span class="token operator">=</span> DQ<span class="token punctuation">;</span>
+	<span class="token function">delay_us</span><span class="token punctuation">(</span><span class="token number">250</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> presencePulse<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 写指令</span>
+<span class="token keyword">void</span> <span class="token function">DS18B20_WriteCmd</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> Rbyte<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">,</span> k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span><span class="token number">8</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		k <span class="token operator">=</span> Rbyte <span class="token operator">&amp;</span> <span class="token number">0x01</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>k <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			DQ <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+			<span class="token function">delay_us</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			DQ <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+			<span class="token function">delay_us</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			DQ <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+			DQ <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+			<span class="token function">delay_us</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			DQ <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		Rbyte <span class="token operator">=</span> Rbyte <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 读数据</span>
+<span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token function">DS18B20_ReadData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">,</span> Data<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span><span class="token number">8</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		DQ <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+		Data <span class="token operator">=</span> Data <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		DQ <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>DQ<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			Data <span class="token operator">=</span> Data <span class="token operator">|</span> <span class="token number">0x80</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token function">delay_us</span><span class="token punctuation">(</span><span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		DQ <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token function">_nop_</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> Data<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 获取温度</span>
+<span class="token keyword">float</span> <span class="token function">DS18B20_GetTemp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> valueLow <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> valueHigh <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">short</span> <span class="token keyword">int</span> temp <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token function">DS18B20_INIT</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">DS18B20_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0xcc</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">DS18B20_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x44</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">delay_750ms</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">DS18B20_INIT</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">DS18B20_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0xcc</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">DS18B20_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0xbe</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	valueLow <span class="token operator">=</span> <span class="token function">DS18B20_ReadData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	valueHigh <span class="token operator">=</span> <span class="token function">DS18B20_ReadData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	temp <span class="token operator">=</span> valueHigh<span class="token punctuation">;</span>
+	temp <span class="token operator">=</span> temp<span class="token operator">&lt;&lt;</span><span class="token number">8</span><span class="token punctuation">;</span>
+	temp <span class="token operator">=</span> temp<span class="token operator">|</span>valueLow<span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token number">0.0625</span><span class="token operator">*</span>temp<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// ----------------LCD相关函数--------------------</span>
+<span class="token comment">// 初始化</span>
+<span class="token keyword">void</span> <span class="token function">LCD_INIT</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x38</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x01</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x06</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x0e</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x80</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 读状态</span>
+<span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token function">LCD_ReadState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> s<span class="token punctuation">;</span>
+	RW<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> RS<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	E<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> s<span class="token operator">=</span>P0<span class="token punctuation">;</span> E<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> s<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 写指令</span>
+<span class="token keyword">void</span> <span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> cmd<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">;</span>
+	<span class="token keyword">do</span> <span class="token punctuation">{</span>
+		i <span class="token operator">=</span> <span class="token function">LCD_ReadState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		i <span class="token operator">&amp;=</span> <span class="token number">0x80</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span> <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	RW<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> RS<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	E<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> P0<span class="token operator">=</span>cmd<span class="token punctuation">;</span> E<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 写数据</span>
+<span class="token keyword">void</span> <span class="token function">LCD_WriteData</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> info<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">;</span>
+	<span class="token keyword">do</span> <span class="token punctuation">{</span>
+		i <span class="token operator">=</span> <span class="token function">LCD_ReadState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		i <span class="token operator">&amp;=</span> <span class="token number">0x80</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span> <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	RW<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> RS<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+	E<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> P0<span class="token operator">=</span>info<span class="token punctuation">;</span> E<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 温度：float转为字符数组</span>
+<span class="token keyword">void</span> <span class="token function">LCD_Float2CharArray</span><span class="token punctuation">(</span><span class="token keyword">float</span> tempp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>tempp <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		temp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'+'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+		temp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'-'</span><span class="token punctuation">;</span>
+		tempp <span class="token operator">=</span> tempp <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	temp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">' '</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>tempp <span class="token operator">&gt;=</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		temp<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> tempp <span class="token operator">/</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token number">48</span><span class="token punctuation">;</span>
+		temp<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>tempp <span class="token operator">%</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token number">48</span><span class="token punctuation">;</span>
+		temp<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'.'</span><span class="token punctuation">;</span>
+		temp<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>tempp <span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>tempp<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token number">48</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+		temp<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'\0'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+		temp<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>tempp <span class="token operator">%</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token number">48</span><span class="token punctuation">;</span>
+		temp<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'.'</span><span class="token punctuation">;</span>
+		temp<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>tempp <span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>tempp<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token number">48</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+		temp<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'\0'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 显示温度</span>
+<span class="token keyword">void</span> <span class="token function">LCD_Display</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token operator">*</span>tempp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0xC0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">*</span>tempp <span class="token operator">!=</span> <span class="token char">'\0'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">LCD_WriteData</span><span class="token punctuation">(</span><span class="token operator">*</span>tempp<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token function">LCD_WriteData</span><span class="token punctuation">(</span><span class="token number">0xdf</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteData</span><span class="token punctuation">(</span><span class="token char">'C'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>		<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteData</span><span class="token punctuation">(</span><span class="token char">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// ----------------串口通信相关函数--------------------</span>
+<span class="token comment">// 发送数据</span>
+<span class="token keyword">void</span> <span class="token function">SERIAL_Send</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token operator">*</span>tempp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">,</span> len<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">*</span>tempp<span class="token operator">++</span> <span class="token operator">!=</span> <span class="token char">'\0'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		len <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token comment">// 发送数据长度</span>
+	SBUF <span class="token operator">=</span> len<span class="token punctuation">;</span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span>TI <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	TI <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token comment">// 发送数据</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		SBUF <span class="token operator">=</span> temp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token keyword">while</span><span class="token punctuation">(</span>TI <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		TI <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// ----------------延迟函数--------------------</span>
+<span class="token comment">// 2微秒</span>
+<span class="token keyword">void</span> <span class="token function">delay_us</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">--</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 750毫秒</span>
+<span class="token keyword">void</span> <span class="token function">delay_750ms</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">,</span>j<span class="token punctuation">,</span>k<span class="token punctuation">;</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">23</span><span class="token punctuation">;</span> i<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span>j<span class="token operator">=</span><span class="token number">202</span><span class="token punctuation">;</span> j<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">for</span> <span class="token punctuation">(</span>k<span class="token operator">=</span><span class="token number">81</span><span class="token punctuation">;</span> k<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">;</span> k<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 自定义延迟</span>
+<span class="token keyword">void</span> <span class="token function">delay</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> t<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">,</span> j<span class="token punctuation">;</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>t<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span>j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">&lt;</span><span class="token number">50</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br><span class="line-number">176</span><br><span class="line-number">177</span><br><span class="line-number">178</span><br><span class="line-number">179</span><br><span class="line-number">180</span><br><span class="line-number">181</span><br><span class="line-number">182</span><br><span class="line-number">183</span><br><span class="line-number">184</span><br><span class="line-number">185</span><br><span class="line-number">186</span><br><span class="line-number">187</span><br><span class="line-number">188</span><br><span class="line-number">189</span><br><span class="line-number">190</span><br><span class="line-number">191</span><br><span class="line-number">192</span><br><span class="line-number">193</span><br><span class="line-number">194</span><br><span class="line-number">195</span><br><span class="line-number">196</span><br><span class="line-number">197</span><br><span class="line-number">198</span><br><span class="line-number">199</span><br><span class="line-number">200</span><br><span class="line-number">201</span><br><span class="line-number">202</span><br><span class="line-number">203</span><br><span class="line-number">204</span><br><span class="line-number">205</span><br><span class="line-number">206</span><br><span class="line-number">207</span><br><span class="line-number">208</span><br><span class="line-number">209</span><br><span class="line-number">210</span><br><span class="line-number">211</span><br><span class="line-number">212</span><br><span class="line-number">213</span><br><span class="line-number">214</span><br><span class="line-number">215</span><br><span class="line-number">216</span><br><span class="line-number">217</span><br><span class="line-number">218</span><br><span class="line-number">219</span><br><span class="line-number">220</span><br><span class="line-number">221</span><br><span class="line-number">222</span><br><span class="line-number">223</span><br><span class="line-number">224</span><br><span class="line-number">225</span><br><span class="line-number">226</span><br><span class="line-number">227</span><br><span class="line-number">228</span><br><span class="line-number">229</span><br><span class="line-number">230</span><br><span class="line-number">231</span><br><span class="line-number">232</span><br><span class="line-number">233</span><br><span class="line-number">234</span><br><span class="line-number">235</span><br><span class="line-number">236</span><br><span class="line-number">237</span><br><span class="line-number">238</span><br><span class="line-number">239</span><br><span class="line-number">240</span><br><span class="line-number">241</span><br><span class="line-number">242</span><br><span class="line-number">243</span><br><span class="line-number">244</span><br><span class="line-number">245</span><br><span class="line-number">246</span><br><span class="line-number">247</span><br><span class="line-number">248</span><br><span class="line-number">249</span><br><span class="line-number">250</span><br><span class="line-number">251</span><br><span class="line-number">252</span><br><span class="line-number">253</span><br><span class="line-number">254</span><br><span class="line-number">255</span><br><span class="line-number">256</span><br><span class="line-number">257</span><br><span class="line-number">258</span><br><span class="line-number">259</span><br><span class="line-number">260</span><br><span class="line-number">261</span><br><span class="line-number">262</span><br><span class="line-number">263</span><br><span class="line-number">264</span><br><span class="line-number">265</span><br><span class="line-number">266</span><br><span class="line-number">267</span><br><span class="line-number">268</span><br><span class="line-number">269</span><br><span class="line-number">270</span><br><span class="line-number">271</span><br><span class="line-number">272</span><br><span class="line-number">273</span><br><span class="line-number">274</span><br><span class="line-number">275</span><br><span class="line-number">276</span><br></div></div><h3 id="乙机-2"><a href="#乙机-2" class="header-anchor">#</a> 乙机</h3> <div class="language-c line-numbers-mode"><pre class="language-c"><code><span class="token comment">/*
+乙机需要完成2件事
+1. 通过串口接收甲机传来的温度值
+2. 利用LCD显示温度值
+*/</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;reg52.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;intrins.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;math.h&gt;</span></span>
+
+sbit RS <span class="token operator">=</span> P1<span class="token operator">^</span><span class="token number">0</span><span class="token punctuation">;</span>
+sbit RW <span class="token operator">=</span> P1<span class="token operator">^</span><span class="token number">1</span><span class="token punctuation">;</span>
+sbit E  <span class="token operator">=</span> P2<span class="token operator">^</span><span class="token number">5</span><span class="token punctuation">;</span>
+
+<span class="token keyword">unsigned</span> <span class="token keyword">char</span> temp<span class="token punctuation">[</span><span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">;</span>                     <span class="token comment">// 温度</span>
+
+<span class="token comment">// LCD相关函数</span>
+<span class="token keyword">void</span> <span class="token function">LCD_INIT</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                            <span class="token comment">// 初始化</span>
+<span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token function">LCD_ReadState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>              <span class="token comment">// 读状态</span>
+<span class="token keyword">void</span> <span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> cmd<span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment">// 写指令</span>
+<span class="token keyword">void</span> <span class="token function">LCD_WriteData</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> info<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// 写数据</span>
+<span class="token keyword">void</span> <span class="token function">LCD_Display</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token operator">*</span>tempp<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// 显示温度</span>
+
+<span class="token comment">// 串口通信相关函数</span>
+<span class="token keyword">void</span> <span class="token function">SERIAL_Receive</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                      <span class="token comment">// 接收数据</span>
+
+<span class="token comment">// 延迟函数</span>
+<span class="token keyword">void</span> <span class="token function">delay</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> t<span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token comment">// 自定义延迟</span>
+
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">;</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> title<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">&quot;temperature:&quot;</span><span class="token punctuation">;</span>
+	P0 <span class="token operator">=</span> <span class="token number">0xff</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_INIT</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x80</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span><span class="token function">strlen</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">LCD_WriteData</span><span class="token punctuation">(</span>title<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	TMOD <span class="token operator">=</span> <span class="token number">0x20</span><span class="token punctuation">;</span>
+	TL1 <span class="token operator">=</span> <span class="token number">0xf4</span><span class="token punctuation">;</span>
+	TH1 <span class="token operator">=</span> <span class="token number">0xf4</span><span class="token punctuation">;</span>
+	TR1 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	SCON <span class="token operator">=</span> <span class="token number">0x40</span><span class="token punctuation">;</span>
+	<span class="token function">SERIAL_Receive</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_Display</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">SERIAL_Receive</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">LCD_Display</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// ----------------LCD相关函数--------------------</span>
+<span class="token comment">// 初始化</span>
+<span class="token keyword">void</span> <span class="token function">LCD_INIT</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x38</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x01</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x06</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x0e</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0x80</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 读状态</span>
+<span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token function">LCD_ReadState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> s<span class="token punctuation">;</span>
+	RW<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> RS<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	E<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> s<span class="token operator">=</span>P0<span class="token punctuation">;</span> E<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> s<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 写指令</span>
+<span class="token keyword">void</span> <span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> cmd<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">;</span>
+	<span class="token keyword">do</span> <span class="token punctuation">{</span>
+		i <span class="token operator">=</span> <span class="token function">LCD_ReadState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		i <span class="token operator">&amp;=</span> <span class="token number">0x80</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span> <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	RW<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> RS<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	E<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> P0<span class="token operator">=</span>cmd<span class="token punctuation">;</span> E<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 写数据</span>
+<span class="token keyword">void</span> <span class="token function">LCD_WriteData</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> info<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">;</span>
+	<span class="token keyword">do</span> <span class="token punctuation">{</span>
+		i <span class="token operator">=</span> <span class="token function">LCD_ReadState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		i <span class="token operator">&amp;=</span> <span class="token number">0x80</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span> <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	RW<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> RS<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+	E<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> P0<span class="token operator">=</span>info<span class="token punctuation">;</span> E<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 显示温度</span>
+<span class="token keyword">void</span> <span class="token function">LCD_Display</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token operator">*</span>tempp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">LCD_WriteCmd</span><span class="token punctuation">(</span><span class="token number">0xC0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">*</span>tempp <span class="token operator">!=</span> <span class="token char">'\0'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">LCD_WriteData</span><span class="token punctuation">(</span><span class="token operator">*</span>tempp<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token function">LCD_WriteData</span><span class="token punctuation">(</span><span class="token number">0xdf</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteData</span><span class="token punctuation">(</span><span class="token char">'C'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>		<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">LCD_WriteData</span><span class="token punctuation">(</span><span class="token char">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// ----------------串口通信相关函数--------------------</span>
+<span class="token comment">// 接收数据</span>
+<span class="token keyword">void</span> <span class="token function">SERIAL_Receive</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">,</span> len<span class="token punctuation">;</span>
+    <span class="token comment">// 接收数据长度</span>
+	REN <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span>RI <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	len <span class="token operator">=</span> SBUF<span class="token punctuation">;</span>
+	RI <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		REN <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token keyword">while</span><span class="token punctuation">(</span>RI <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		temp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> SBUF<span class="token punctuation">;</span>
+		RI <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	temp<span class="token punctuation">[</span>len<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'\0'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// ----------------延迟函数--------------------</span>
+<span class="token comment">// 自定义延迟</span>
+<span class="token keyword">void</span> <span class="token function">delay</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> t<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">char</span> i<span class="token punctuation">,</span> j<span class="token punctuation">;</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>t<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span>j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">&lt;</span><span class="token number">50</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br></div></div><br> <h2 id="运行结果"><a href="#运行结果" class="header-anchor">#</a> 运行结果</h2> <ul><li>设置DS18B20</li></ul> <img src="https://mrzry.oss-cn-guangzhou.aliyuncs.com/单片机大作业/image-20220527104952689.png" style="zoom:80%;"> <ul><li>运行结果</li></ul> <img src="https://mrzry.oss-cn-guangzhou.aliyuncs.com/单片机大作业/image-20220527105314598.png" style="zoom:80%;"> <ul><li>调节温度值</li></ul> <img src="https://mrzry.oss-cn-guangzhou.aliyuncs.com/单片机大作业/image-20220527105359976.png" style="zoom:80%;"> <ul><li>当温度值&gt;10</li></ul> <img src="https://mrzry.oss-cn-guangzhou.aliyuncs.com/单片机大作业/image-20220527105512085.png" style="zoom:80%;"> <ul><li>当温度值为负数</li></ul> <img src="https://mrzry.oss-cn-guangzhou.aliyuncs.com/单片机大作业/image-20220527105553555.png" style="zoom:80%;"></div></section> <footer class="page-edit"><!----> <!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/notes/20220701/" class="prev">
+            PHP大小写敏感原则
+          </a></span> <span class="next"><a href="/notes/20220506/">
+            在Windows下安装和使用vim
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-1ab38110><li class="level-2" data-v-1ab38110><a href="/notes/20220612/#分析" class="sidebar-link reco-side-分析" data-v-1ab38110>分析</a></li><li class="level-2" data-v-1ab38110><a href="/notes/20220612/#仿真图" class="sidebar-link reco-side-仿真图" data-v-1ab38110>仿真图</a></li><li class="level-3" data-v-1ab38110><a href="/notes/20220612/#甲机" class="sidebar-link reco-side-甲机" data-v-1ab38110>甲机</a></li><li class="level-3" data-v-1ab38110><a href="/notes/20220612/#乙机" class="sidebar-link reco-side-乙机" data-v-1ab38110>乙机</a></li><li class="level-2" data-v-1ab38110><a href="/notes/20220612/#编程" class="sidebar-link reco-side-编程" data-v-1ab38110>编程</a></li><li class="level-3" data-v-1ab38110><a href="/notes/20220612/#ds18b20相关函数" class="sidebar-link reco-side-ds18b20相关函数" data-v-1ab38110>DS18B20相关函数</a></li><li class="level-3" data-v-1ab38110><a href="/notes/20220612/#lcd相关函数" class="sidebar-link reco-side-lcd相关函数" data-v-1ab38110>LCD相关函数</a></li><li class="level-3" data-v-1ab38110><a href="/notes/20220612/#串口通信相关函数" class="sidebar-link reco-side-串口通信相关函数" data-v-1ab38110>串口通信相关函数</a></li><li class="level-3" data-v-1ab38110><a href="/notes/20220612/#延迟函数" class="sidebar-link reco-side-延迟函数" data-v-1ab38110>延迟函数</a></li><li class="level-3" data-v-1ab38110><a href="/notes/20220612/#甲机主函数" class="sidebar-link reco-side-甲机主函数" data-v-1ab38110>甲机主函数</a></li><li class="level-3" data-v-1ab38110><a href="/notes/20220612/#乙机主函数" class="sidebar-link reco-side-乙机主函数" data-v-1ab38110>乙机主函数</a></li><li class="level-2" data-v-1ab38110><a href="/notes/20220612/#源码" class="sidebar-link reco-side-源码" data-v-1ab38110>源码</a></li><li class="level-3" data-v-1ab38110><a href="/notes/20220612/#甲机-2" class="sidebar-link reco-side-甲机-2" data-v-1ab38110>甲机</a></li><li class="level-3" data-v-1ab38110><a href="/notes/20220612/#乙机-2" class="sidebar-link reco-side-乙机-2" data-v-1ab38110>乙机</a></li><li class="level-2" data-v-1ab38110><a href="/notes/20220612/#运行结果" class="sidebar-link reco-side-运行结果" data-v-1ab38110>运行结果</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.f7e8e995.js" defer></script><script src="/assets/js/4.3cee6728.js" defer></script><script src="/assets/js/1.c5ff96e6.js" defer></script><script src="/assets/js/34.d6227dc2.js" defer></script>
+  </body>
+</html>

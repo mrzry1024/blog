@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>PHP大小写敏感原则 | 潜心的博客</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/favicon_io.ico">
+    <meta name="description" content="PHP大小写敏感原则">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="author" content="潜心">
+    <meta name="keywords" content="CTF, web, misc, crypto, python, php, writeup">
+    
+    <link rel="preload" href="/assets/css/0.styles.c4acef5e.css" as="style"><link rel="preload" href="/assets/js/app.f7e8e995.js" as="script"><link rel="preload" href="/assets/js/4.3cee6728.js" as="script"><link rel="preload" href="/assets/js/1.c5ff96e6.js" as="script"><link rel="preload" href="/assets/js/32.6ab2a980.js" as="script"><link rel="prefetch" href="/assets/js/10.8e600f2b.js"><link rel="prefetch" href="/assets/js/11.fc36ce6b.js"><link rel="prefetch" href="/assets/js/12.6cdbdcaf.js"><link rel="prefetch" href="/assets/js/13.61b4f805.js"><link rel="prefetch" href="/assets/js/14.c591399f.js"><link rel="prefetch" href="/assets/js/15.361ca9ac.js"><link rel="prefetch" href="/assets/js/16.08785b04.js"><link rel="prefetch" href="/assets/js/17.822b9315.js"><link rel="prefetch" href="/assets/js/18.003c5ebc.js"><link rel="prefetch" href="/assets/js/19.bd0112f8.js"><link rel="prefetch" href="/assets/js/2.5b7a4028.js"><link rel="prefetch" href="/assets/js/20.64fc3ad9.js"><link rel="prefetch" href="/assets/js/21.588b5815.js"><link rel="prefetch" href="/assets/js/22.fc668e2b.js"><link rel="prefetch" href="/assets/js/23.284ec3f8.js"><link rel="prefetch" href="/assets/js/24.b263c519.js"><link rel="prefetch" href="/assets/js/25.669d01ee.js"><link rel="prefetch" href="/assets/js/26.d139a31e.js"><link rel="prefetch" href="/assets/js/27.624e6fc7.js"><link rel="prefetch" href="/assets/js/28.2a673897.js"><link rel="prefetch" href="/assets/js/29.9bf86b1f.js"><link rel="prefetch" href="/assets/js/30.80d6f8d0.js"><link rel="prefetch" href="/assets/js/31.e1dd9a8e.js"><link rel="prefetch" href="/assets/js/33.71f50014.js"><link rel="prefetch" href="/assets/js/34.d6227dc2.js"><link rel="prefetch" href="/assets/js/35.9ca30d12.js"><link rel="prefetch" href="/assets/js/36.fcde9c40.js"><link rel="prefetch" href="/assets/js/37.1aea60dc.js"><link rel="prefetch" href="/assets/js/38.8de670a2.js"><link rel="prefetch" href="/assets/js/39.02d8e408.js"><link rel="prefetch" href="/assets/js/40.3445ceda.js"><link rel="prefetch" href="/assets/js/41.ecc5023b.js"><link rel="prefetch" href="/assets/js/42.4356d800.js"><link rel="prefetch" href="/assets/js/43.8a1ed75e.js"><link rel="prefetch" href="/assets/js/44.92e4084c.js"><link rel="prefetch" href="/assets/js/45.08d80acc.js"><link rel="prefetch" href="/assets/js/46.4fe9ee4b.js"><link rel="prefetch" href="/assets/js/47.6e1edf1e.js"><link rel="prefetch" href="/assets/js/48.229a61cd.js"><link rel="prefetch" href="/assets/js/49.7e1c0063.js"><link rel="prefetch" href="/assets/js/5.e7038132.js"><link rel="prefetch" href="/assets/js/6.f36bd144.js"><link rel="prefetch" href="/assets/js/7.898c1b14.js"><link rel="prefetch" href="/assets/js/8.c7c9767e.js"><link rel="prefetch" href="/assets/js/9.39de197d.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c4acef5e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-edf8551e><div data-v-edf8551e><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-edf8551e data-v-edf8551e><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-24de1186 data-v-edf8551e data-v-edf8551e><h3 class="title" data-v-24de1186 data-v-24de1186>潜心的博客</h3> <p class="description" data-v-24de1186 data-v-24de1186>记录一名CTFer的学习日常</p> <label id="box" class="inputBox" data-v-24de1186 data-v-24de1186><input type="password" value="" data-v-24de1186> <span data-v-24de1186>Konck! Knock!</span> <button data-v-24de1186>OK</button></label> <div class="footer" data-v-24de1186 data-v-24de1186><span data-v-24de1186><i class="iconfont reco-theme" data-v-24de1186></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-24de1186>vuePress-theme-reco</a></span> <span data-v-24de1186><i class="iconfont reco-copyright" data-v-24de1186></i> <a data-v-24de1186><span data-v-24de1186>潜心</span>
+            
+          <!---->
+          2022
+        </a></span></div></div> <div class="hide" data-v-edf8551e><header class="navbar" data-v-edf8551e><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="潜心的博客" class="logo"> <span class="site-name">潜心的博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/博客搭建/" class="nav-link"><i class="undefined"></i>
+  博客搭建
+</a></li><li class="dropdown-item"><!----> <a href="/categories/crypto/" class="nav-link"><i class="undefined"></i>
+  crypto
+</a></li><li class="dropdown-item"><!----> <a href="/categories/misc/" class="nav-link"><i class="undefined"></i>
+  misc
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mobile/" class="nav-link"><i class="undefined"></i>
+  mobile
+</a></li><li class="dropdown-item"><!----> <a href="/categories/notes/" class="nav-link"><i class="undefined"></i>
+  notes
+</a></li><li class="dropdown-item"><!----> <a href="/categories/web/" class="nav-link"><i class="undefined"></i>
+  web
+</a></li><li class="dropdown-item"><!----> <a href="/categories/writeup/" class="nav-link"><i class="undefined"></i>
+  writeup
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-blog"></i>
+      CTF
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/writeup/" class="nav-link"><i class="undefined"></i>
+  Writeup
+</a></li><li class="dropdown-item"><!----> <a href="/web/" class="nav-link"><i class="undefined"></i>
+  Web
+</a></li><li class="dropdown-item"><!----> <a href="/misc/" class="nav-link"><i class="undefined"></i>
+  Misc
+</a></li><li class="dropdown-item"><!----> <a href="/crypto/" class="nav-link"><i class="undefined"></i>
+  Crypto
+</a></li><li class="dropdown-item"><!----> <a href="/mobile/" class="nav-link"><i class="undefined"></i>
+  Mobile
+</a></li></ul></div></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/docs/tools.html" class="nav-link"><i class="iconfont reco-document"></i>
+  工具网站
+</a></div><div class="nav-item"><a href="/docs/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-edf8551e></div> <aside class="sidebar" data-v-edf8551e><div class="personal-info-wrapper" data-v-29bd5bbe data-v-edf8551e><img src="/avatar.jpg" alt="author-avatar" class="personal-img" data-v-29bd5bbe> <h3 class="name" data-v-29bd5bbe>
+    潜心
+  </h3> <div class="num" data-v-29bd5bbe><div data-v-29bd5bbe><h3 data-v-29bd5bbe>29</h3> <h6 data-v-29bd5bbe>文章</h6></div> <div data-v-29bd5bbe><h3 data-v-29bd5bbe>51</h3> <h6 data-v-29bd5bbe>标签</h6></div></div> <ul class="social-links" data-v-29bd5bbe></ul> <hr data-v-29bd5bbe></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/博客搭建/" class="nav-link"><i class="undefined"></i>
+  博客搭建
+</a></li><li class="dropdown-item"><!----> <a href="/categories/crypto/" class="nav-link"><i class="undefined"></i>
+  crypto
+</a></li><li class="dropdown-item"><!----> <a href="/categories/misc/" class="nav-link"><i class="undefined"></i>
+  misc
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mobile/" class="nav-link"><i class="undefined"></i>
+  mobile
+</a></li><li class="dropdown-item"><!----> <a href="/categories/notes/" class="nav-link"><i class="undefined"></i>
+  notes
+</a></li><li class="dropdown-item"><!----> <a href="/categories/web/" class="nav-link"><i class="undefined"></i>
+  web
+</a></li><li class="dropdown-item"><!----> <a href="/categories/writeup/" class="nav-link"><i class="undefined"></i>
+  writeup
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-blog"></i>
+      CTF
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/writeup/" class="nav-link"><i class="undefined"></i>
+  Writeup
+</a></li><li class="dropdown-item"><!----> <a href="/web/" class="nav-link"><i class="undefined"></i>
+  Web
+</a></li><li class="dropdown-item"><!----> <a href="/misc/" class="nav-link"><i class="undefined"></i>
+  Misc
+</a></li><li class="dropdown-item"><!----> <a href="/crypto/" class="nav-link"><i class="undefined"></i>
+  Crypto
+</a></li><li class="dropdown-item"><!----> <a href="/mobile/" class="nav-link"><i class="undefined"></i>
+  Mobile
+</a></li></ul></div></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/docs/tools.html" class="nav-link"><i class="iconfont reco-document"></i>
+  工具网站
+</a></div><div class="nav-item"><a href="/docs/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于
+</a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Notes</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/notes/" aria-current="page" class="sidebar-link">README</a></li><li><a href="/notes/20220701/" aria-current="page" class="active sidebar-link">PHP大小写敏感原则</a></li><li><a href="/notes/20220612/" class="sidebar-link">单片机大作业</a></li><li><a href="/notes/20220506/" class="sidebar-link">在Windows下安装和使用vim</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-24de1186 data-v-edf8551e><h3 class="title" data-v-24de1186 data-v-24de1186>PHP大小写敏感原则</h3> <!----> <label id="box" class="inputBox" data-v-24de1186 data-v-24de1186><input type="password" value="" data-v-24de1186> <span data-v-24de1186>Konck! Knock!</span> <button data-v-24de1186>OK</button></label> <div class="footer" data-v-24de1186 data-v-24de1186><span data-v-24de1186><i class="iconfont reco-theme" data-v-24de1186></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-24de1186>vuePress-theme-reco</a></span> <span data-v-24de1186><i class="iconfont reco-copyright" data-v-24de1186></i> <a data-v-24de1186><span data-v-24de1186>潜心</span>
+            
+          <!---->
+          2022
+        </a></span></div></div> <div data-v-edf8551e><main class="page"><section><div class="page-title"><h1 class="title">PHP大小写敏感原则</h1> <div data-v-6b827e97><i class="iconfont reco-account" data-v-6b827e97><span data-v-6b827e97>潜心</span></i> <i class="iconfont reco-date" data-v-6b827e97><span data-v-6b827e97>2022-7-1</span></i> <!----> <i class="tags iconfont reco-tag" data-v-6b827e97><span class="tag-item" data-v-6b827e97>PHP</span><span class="tag-item" data-v-6b827e97>大小写敏感</span></i></div></div> <div class="theme-reco-content content__default"><p>参考：<a href="http://t.zoukankan.com/daipianpian-p-5721377.html" target="_blank" rel="noopener noreferrer">PHP命名大小写敏感规则 - 走看看 (zoukankan.com)<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="大小写敏感"><a href="#大小写敏感" class="header-anchor">#</a> 大小写敏感</h2> <h3 id="变量名"><a href="#变量名" class="header-anchor">#</a> 变量名</h3> <p>所有变量名均区分大小写，包括超全局变量</p> <div class="language-php line-numbers-mode"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token variable">$abc</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'abc'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$abc</span><span class="token punctuation">;</span>    <span class="token comment">// 输出'abc'</span>
+<span class="token comment">//echo $aBc;  // 报错，无输出</span>
+
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// array(0) { }</span>
+<span class="token comment">//var_dump($_Get);  // 报错，输出'NULL'</span>
+</span></code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h3 id="常量名"><a href="#常量名" class="header-anchor">#</a> 常量名</h3> <p>包括系统常量，如PHP_VERSION</p> <div class="language-php line-numbers-mode"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token function">define</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'PI'</span><span class="token punctuation">,</span> <span class="token number">3.14</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token constant">PI</span><span class="token punctuation">;</span>    <span class="token comment">// 输出'3.14'</span>
+<span class="token comment">//echo Pi;  // 报错，输出'Pi'</span>
+
+<span class="token keyword">const</span> <span class="token constant">PI2</span> <span class="token operator">=</span> <span class="token number">3.14</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token constant">PI2</span><span class="token punctuation">;</span>   <span class="token comment">// 输出'3.14'</span>
+<span class="token comment">//echo Pi2; // 报错，输出'Pi'</span>
+
+<span class="token keyword">echo</span> <span class="token constant">PHP_VERSION</span><span class="token punctuation">;</span>    <span class="token comment">// 输出'7.0.12'</span>
+<span class="token comment">//echo php_VERSION;  // 报错，输出'php_VERSION'</span>
+</span></code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="数组索引-键名"><a href="#数组索引-键名" class="header-anchor">#</a> 数组索引（键名）</h3> <div class="language-php line-numbers-mode"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token variable">$arr</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'one'</span><span class="token operator">=&gt;</span><span class="token string single-quoted-string">'first'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'one'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment">// 输出'first'</span>
+<span class="token comment">//echo $arr['onE'];  // 报错，无输出</span>
+<span class="token comment">//echo $aRr['one'];  // 报错，无输出，变量名区分大小写</span>
+</span></code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><br> <h2 id="大小写不敏感"><a href="#大小写不敏感" class="header-anchor">#</a> 大小写不敏感</h2> <p>虽然大小写不敏感，但是建议遵循”大小写敏感“原则</p> <h3 id="函数名、方法名、类名"><a href="#函数名、方法名、类名" class="header-anchor">#</a> 函数名、方法名、类名</h3> <div class="language-php line-numbers-mode"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">Student</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$name</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'Lucy'</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">name</span> <span class="token operator">.</span> <span class="token string double-quoted-string">&quot;\n&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function-definition function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string single-quoted-string">'Hello World'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$s</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StuDENt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$s</span><span class="token operator">-&gt;</span><span class="token function">gETNAme</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">pHpinFO</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">VaR_DUmp</span><span class="token punctuation">(</span><span class="token function">tESt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>Lucy
+// phpinfo()
+string(11) &quot;Hello World&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h3 id="魔术常量"><a href="#魔术常量" class="header-anchor">#</a> 魔术常量</h3> <div class="language-php line-numbers-mode"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">echo</span> <span class="token constant">__LINE__</span> <span class="token operator">.</span> <span class="token string double-quoted-string">&quot;\n&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> __liNE__ <span class="token operator">.</span> <span class="token string double-quoted-string">&quot;\n&quot;</span><span class="token punctuation">;</span>
+</span></code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>2
+3
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="null、true、false"><a href="#null、true、false" class="header-anchor">#</a> null、true、false</h3> <div class="language-php line-numbers-mode"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token constant boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token constant boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token constant boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token constant boolean">FALSE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token constant">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>bool(true)
+bool(true)
+bool(false)
+bool(false)
+NULL
+NULL
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h3 id="强制类型转换"><a href="#强制类型转换" class="header-anchor">#</a> 强制类型转换</h3> <div class="language-php line-numbers-mode"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'123'</span><span class="token punctuation">;</span>
+<span class="token variable">$b</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword type-casting">iNT</span><span class="token punctuation">)</span> <span class="token variable">$a</span><span class="token punctuation">;</span>
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">,</span> <span class="token variable">$b</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>string(3) &quot;123&quot;
+int(123)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><br></div></section> <footer class="page-edit"><!----> <!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/notes/" class="prev router-link-active">
+            README
+          </a></span> <span class="next"><a href="/notes/20220612/">
+            单片机大作业
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-1ab38110><li class="level-2" data-v-1ab38110><a href="/notes/20220701/#大小写敏感" class="sidebar-link reco-side-大小写敏感" data-v-1ab38110>大小写敏感</a></li><li class="level-3" data-v-1ab38110><a href="/notes/20220701/#变量名" class="sidebar-link reco-side-变量名" data-v-1ab38110>变量名</a></li><li class="level-3" data-v-1ab38110><a href="/notes/20220701/#常量名" class="sidebar-link reco-side-常量名" data-v-1ab38110>常量名</a></li><li class="level-3" data-v-1ab38110><a href="/notes/20220701/#数组索引-键名" class="sidebar-link reco-side-数组索引-键名" data-v-1ab38110>数组索引（键名）</a></li><li class="level-2" data-v-1ab38110><a href="/notes/20220701/#大小写不敏感" class="sidebar-link reco-side-大小写不敏感" data-v-1ab38110>大小写不敏感</a></li><li class="level-3" data-v-1ab38110><a href="/notes/20220701/#函数名、方法名、类名" class="sidebar-link reco-side-函数名、方法名、类名" data-v-1ab38110>函数名、方法名、类名</a></li><li class="level-3" data-v-1ab38110><a href="/notes/20220701/#魔术常量" class="sidebar-link reco-side-魔术常量" data-v-1ab38110>魔术常量</a></li><li class="level-3" data-v-1ab38110><a href="/notes/20220701/#null、true、false" class="sidebar-link reco-side-null、true、false" data-v-1ab38110>null、true、false</a></li><li class="level-3" data-v-1ab38110><a href="/notes/20220701/#强制类型转换" class="sidebar-link reco-side-强制类型转换" data-v-1ab38110>强制类型转换</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.f7e8e995.js" defer></script><script src="/assets/js/4.3cee6728.js" defer></script><script src="/assets/js/1.c5ff96e6.js" defer></script><script src="/assets/js/32.6ab2a980.js" defer></script>
+  </body>
+</html>
